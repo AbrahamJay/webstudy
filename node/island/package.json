@@ -1,0 +1,25 @@
+{
+  "name": "island",
+  "version": "1.0.0",
+  "description": "koa2 study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AbrahamJay/webstudy.git"
+  },
+  "keywords": [
+    "koa2"
+  ],
+  "author": "tanghao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbrahamJay/webstudy/issues"
+  },
+  "homepage": "https://github.com/AbrahamJay/webstudy#readme",
+  "dependencies": {
+    "koa": "^2.13.0"
+  }
+}
