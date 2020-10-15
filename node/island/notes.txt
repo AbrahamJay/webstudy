@@ -1,0 +1,21 @@
+中间件调用
+app.use(async (ctx, next) => {
+  console.log(ctx.path)
+  console.log(ctx.method)
+  if (ctx.path === '/classic/latest' && ctx.method === 'GET') {
+    ctx.body = { key: 'classic' } 
+  }
+})
+路由注册
+const classic = require('./api/v1/classic')
+const book = require('./api/v1/book')
+app.use(classic.routes())
+
+// 路径参数
+const path = ctx.params
+// 查询参数
+const query = ctx.request.query
+// header
+const headers = ctx.request.header
+// body参数
+const body = ctx.request.body
