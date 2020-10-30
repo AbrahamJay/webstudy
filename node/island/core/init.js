@@ -6,6 +6,7 @@ class InitManager {
   static initCore (app) {
     InitManager.app = app
     InitManager.initLoadRouter()
+    InitManager.loadConfig()
   }
   // 初始化路由
   static initLoadRouter () {
@@ -19,6 +20,12 @@ class InitManager {
         InitManager.app.use(obj.routes())
       }
     }
+  }
+  // 配置文件挂载到全局
+  static loadConfig (path = '') {
+    const configPath = path || `${process.cwd()}/node/island/config/config`
+    const config = require(configPath)
+    global.config = config
   }
 }
 
