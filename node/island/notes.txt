@@ -19,3 +19,8 @@ const query = ctx.request.query
 const headers = ctx.request.header
 // body参数
 const body = ctx.request.body
+
+
+
+AOP: 面向切面编程
+ORM: 对象操作数据库

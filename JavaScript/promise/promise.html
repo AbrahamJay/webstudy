@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Promise语法：new Promise((resolve, reject) => {})
+    // 类
+    // 三个状态 pedding fulfilled rejected
+
+    // 定义Promise类
+    class Promise {
+      constructor (executor) {
+        this.state = 'pedding'
+        this.value = undefined
+        this.reason = undefined
+        this.resolveCallbacks = []
+        this.rejectCallbacks = []
+        let resolve = value => {
+          if (this.state === 'pedding') {
+            this.state = 'fulfilled'
+            this.value = value
+            this.resolveCallbacks.map(fn => fn())
+          }
+        }
+        let reject = reason => {
+          if (this.state === 'pedding') {
+            this.state = 'rejected'
+            this.reason = reason
+            this.rejectCallbacks.map(fn => fn())
+          }
+        }
+        // executor报错 直接执行reject
+        try {
+          executor(resolve, reject)
+        } catch (error) {
+          reject(error)
+        }
+      }
+      then (onFulfilled, onRejcted) {
+        if (this.state === 'fulfilled') {
+          onFulfilled(this.value)
+        }
+        if (this.state === 'rejected') {
+          onRejcted(this.reason)
+        }
+        if (this.state === 'pedding') {
+          this.resolveCallbacks.push(() => {
+            onFulfilled(this.value)
+          })
+          this.rejectCallbacks.push(() => {
+            onRejcted(this.reason)
+          })
+        }
+      }
+    }
+    const test01 = new Promise((resove, reject) => {
+      if (Math.random() < 0.5) {
+        setTimeout(() => {
+          resove('成功')
+        }, 1000)
+      } else {
+        setTimeout(() => {
+          reject('失败')
+        }, 1000)
+      }
+    })
+    console.log(test01)
+    test01.then(res => {
+      console.log(res)
+    }, err => {
+      console.log(err)
+    })
+  </script>
+</body>
+</html>
