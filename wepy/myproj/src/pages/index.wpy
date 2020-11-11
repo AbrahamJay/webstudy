@@ -264,7 +264,6 @@ module.exports.getTime = getTime;
         eventHub.$emit('app-launch', {a: 1}, {b: 2});
       },
       request () {
-        console.log(getPlatform)
         getPlatform({ name: '111' }).then(res => {
           console.log(res)
         })

@@ -21,7 +21,7 @@ module.exports = {
       compress: prod
     },
     babel: {
-      sourceMap: true,
+      sourceMap: prod,
       presets: [
         '@babel/preset-env'
       ],
