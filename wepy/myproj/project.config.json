@@ -25,12 +25,12 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "useIsolateContext": true,
-    "useCompilerModule": false,
+    "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
+    "enableEngineNative": false,
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
