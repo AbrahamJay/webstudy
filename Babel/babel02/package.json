@@ -1,0 +1,22 @@
+{
+  "name": "babel02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "a.js",
+  "scripts": {
+    "dev": "npx webpack a.js -o b.js",
+    "serve": "npx webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.26.0",
+    "webpack-cli": "^4.5.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "core-js": "^3.9.1",
+    "regenerator-runtime": "^0.13.7"
+  }
+}
