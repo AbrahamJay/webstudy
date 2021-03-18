@@ -1,16 +1,16 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
+var _interopRequireDefault = require("@babel/runtime-corejs2/helpers/interopRequireDefault");
 
-var _typeof2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/typeof"));
+var _promise = _interopRequireDefault(require("@babel/runtime-corejs2/core-js/promise"));
 
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/classCallCheck"));
+var _typeof2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/typeof"));
 
-var _includes = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/includes"));
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/classCallCheck"));
 
 // import '@babel/polyfill'
 var array = [1, 2, 3, 4];
-(0, _includes["default"])(array).call(array, function (item) {
+array.includes(function (item) {
   return item > 2;
 });
 
@@ -22,4 +22,7 @@ var Person2 = function Person2() {
   (0, _classCallCheck2["default"])(this, Person2);
 };
 
+var promise = _promise["default"].resolve('ok');
+
+[1, [2, [3, 4]]].flat();
 typeof a === "undefined" ? "undefined" : (0, _typeof2["default"])(a);

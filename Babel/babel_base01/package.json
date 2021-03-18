@@ -1,0 +1,17 @@
+{
+  "name": "babel_base01",
+  "version": "1.0.0",
+  "description": "babel_base01",
+  "main": "main.js",
+  "scripts": {
+    "serve": "npx babel main.js -o compiled.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10"
+  }
+}

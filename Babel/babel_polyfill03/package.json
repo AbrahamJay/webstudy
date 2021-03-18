@@ -1,20 +1,16 @@
 {
-  "name": "babel02",
+  "name": "babel_polyfill03",
   "version": "1.0.0",
-  "description": "",
-  "main": "a.js",
+  "description": "babel_polyfill03",
+  "main": "main.js",
   "scripts": {
-    "dev": "npx babel a.js -o b.js",
     "serve": "npx webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.13.10",
-    "@babel/core": "^7.13.10",
-    "@babel/preset-env": "^7.13.10",
-    "webpack": "^5.26.0",
+    "webpack": "^5.26.3",
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
