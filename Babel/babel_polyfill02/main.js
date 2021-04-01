@@ -1,5 +1,5 @@
 // 在前端工程的入口文件里引入polyfill.js
-// import './polyfill.js';
+import './polyfill.js';
 
 //  在前端工程的入口文件里引入@babel/polyfill
 // import '@babel/polyfill';
