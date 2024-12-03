@@ -1,16 +1,27 @@
 <template>
-  <div class="revolution-animation" :style="{'padding': ballWidth / 2 + 'px'}">
-    <div class="rotate-ball-planet" :style="{'width': width + 'px', 'height': height + 'px'}">
+  <div
+    class="revolution-animation"
+    :style="{'padding': ballWidth / 2 + 'px'}"
+  >
+    <div
+      class="rotate-ball-planet"
+      :style="{'width': width + 'px', 'height': height + 'px'}"
+    >
       <!-- 轨迹线 -->
       <div class="rotate-ball-track"></div>
       <!-- 球体 & 球体运动 -->
-      <div v-for="(item, index) in data" :key="index" class="rotate-ball-ball" :style="ballMoveStyle(index)">
+      <div
+        v-for="(item, index) in data"
+        :key="index"
+        class="rotate-ball-ball"
+        :style="ballMoveStyle(index)"
+      >
         <!-- 旋转效果 -->
         <div :style="ballRotateStyle(index)">
           <!-- 反旋转效果 -->
           <div :style="ballRotateInTurnStyle(index)">
             <!-- 缩放效果 -->
-            <div :style="ballScaleStyle(index)">{{item.name}}</div>
+            <div :style="ballScaleStyle(index)">{{ item.name }}</div>
           </div>
         </div>
       </div>
@@ -48,38 +59,38 @@ export default {
     // 球体偏移移动动画样式
     ballMoveStyle (index) {
       return {
-        animationDelay: `${index / this.data.length * this.amTime}s`,
-        animationDuration: `${this.amTime / 2}s`
+        animationDelay: `${ index / this.data.length * this.amTime }s`,
+        animationDuration: `${ this.amTime / 2 }s`
       }
     },
     // 球体旋转动画样式
     ballRotateStyle (index) {
       return {
-        animationDelay: `${index / this.data.length * this.amTime}s`,
-        animationDuration: `${this.amTime}s`,
-        width: `${this.ballWidth}px`,
-        height: `${this.ballWidth}px`,
-        left: `${this.width / 2 - this.ballWidth / 2}px`,
-        lineHeight: `${this.ballWidth}px`,
-        top: `-${this.ballWidth / 2}px`,
-        transformOrigin: `${this.ballWidth / 2}px ${this.width / 2 + this.ballWidth / 2}px`
+        animationDelay: `${ index / this.data.length * this.amTime }s`,
+        animationDuration: `${ this.amTime }s`,
+        width: `${ this.ballWidth }px`,
+        height: `${ this.ballWidth }px`,
+        left: `${ this.width / 2 - this.ballWidth / 2 }px`,
+        lineHeight: `${ this.ballWidth }px`,
+        top: `-${ this.ballWidth / 2 }px`,
+        transformOrigin: `${ this.ballWidth / 2 }px ${ this.width / 2 + this.ballWidth / 2 }px`
       }
     },
     // 球体反旋转动画样式
     ballRotateInTurnStyle (index) {
       return {
-        animationDelay: `${index / this.data.length * this.amTime}s`,
-        animationDuration: `${this.amTime}s`
+        animationDelay: `${ index / this.data.length * this.amTime }s`,
+        animationDuration: `${ this.amTime }s`
       }
     },
     // 球体缩放动画样式 & 字体样式
     ballScaleStyle (index) {
       return {
-        fontSize: `${this.fontSize}px`,
-        color: `${this.color}`,
-        backgroundImage: `url(${this.ballImg})`,
-        animationDelay: `${index / this.data.length * this.amTime}s`,
-        animationDuration: `${this.amTime}s`
+        fontSize: `${ this.fontSize }px`,
+        color: `${ this.color }`,
+        backgroundImage: `url(${ this.ballImg })`,
+        animationDelay: `${ index / this.data.length * this.amTime }s`,
+        animationDuration: `${ this.amTime }s`
       }
     },
     // 设置球的运动轨迹动画
@@ -100,7 +111,7 @@ export default {
         sheet.insertRule(
           `@keyframes revolution-move-y {
             to {
-                transform: translateY(-${this.width - this.height}px);
+                transform: translateY(-${ this.width - this.height }px);
             }
           }`
         )
@@ -109,48 +120,68 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .revolution-animation {
   overflow: hidden;
+
   .rotate-ball-planet {
     position: relative;
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
+
     .rotate-ball-track {
-      position: absolute; left: 0; top: 0;
-      width: 100%; height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
       border: 1px solid darkgrey;
       border-radius: 50%;
     }
+
     .rotate-ball-ball {
       position: absolute;
       animation: revolution-move-y 8s ease-in-out infinite both alternate;
+
       > div {
         position: absolute;
         text-align: center;
         animation: revolution-rotation 16s linear both infinite;
         transform-origin: 50% 50%;
+
         > div {
-          width: 100%; height: 100%;
+          width: 100%;
+          height: 100%;
           transform-origin: 50% 50%;
           animation: revolution-rotation2 16s linear both infinite;
+
           > div {
             background-repeat: no-repeat;
             background-position: center center;
             background-size: 100% 100%;
-            width: 100%; height: 100%;
-            font-size: 56px; color: #fff;
+            width: 100%;
+            height: 100%;
+            font-size: 56px;
+            color: #fff;
             animation: revolution-suofang 16s linear both infinite;
           }
         }
       }
     }
+
     &:hover {
       > div {
         animation-play-state: paused;
+
         > div {
           animation-play-state: paused;
+
           > div {
             animation-play-state: paused;
+
             > div {
               animation-play-state: paused;
             }
@@ -166,11 +197,13 @@ export default {
     transform: rotate(360deg);
   }
 }
+
 @keyframes revolution-rotation2 {
   to {
     transform: rotate(-360deg);
   }
 }
+
 @keyframes revolution-suofang {
   0% {
     transform: scale(0.4)

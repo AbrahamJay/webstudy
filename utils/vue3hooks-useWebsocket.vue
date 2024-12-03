@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    vue3 composable组合式api useWebsocket,<br/>
-    使用方式以及源代码如左侧代码示例，<br/>
+    vue3 composable组合式api useWebsocket,<br />
+    使用方式以及源代码如左侧代码示例，<br />
     useWebSocket.js可下载获取也可左侧代码最下方复制。
   </div>
 </template>
@@ -9,6 +9,7 @@
 <script setup>
 import { watchEffect } from 'vue'
 import { useWebSocket } from '@/composables/useWebSocket'
+
 const { ws } = useWebSocket('your websocket url')
 watchEffect(() => {
   if (ws.value) {
